@@ -427,3 +427,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   izracunajCijenu();
 });
+
+// ============================================================
+// 9. SCROLL TO TOP DUGME
+// ============================================================
+
+var scrollTopBtn = document.getElementById('scroll-to-top');
+
+if (scrollTopBtn) {
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+      scrollTopBtn.classList.add('vidljiv');
+    } else {
+      scrollTopBtn.classList.remove('vidljiv');
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
