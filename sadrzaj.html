@@ -412,3 +412,68 @@
 
       </div>
     </section>
+
+    <section id="kalkulator" class="content-section">
+      <h2>Kalkulator cijene <span class="section-anchor"><a href="#vrh">↑ Vrh</a></span></h2>
+      <p>Izračunajte ukupnu cijenu boravka prema vašem odabiru smještaja i broju noći.</p>
+
+      <div class="kalkulator-sekcija">
+        <h3>🧮 Izračunaj cijenu boravka</h3>
+
+        <div class="kalk-grid">
+          <div class="kalk-group">
+            <label for="kalk-smjestaj">Odaberite smještaj</label>
+            <select id="kalk-smjestaj">
+              <option value="170">Hotel Mellain — 170 KM/noć</option>
+              <option value="155">Hotel Salis — 155 KM/noć</option>
+              <option value="140">Hotel Tuzla — 140 KM/noć</option>
+              <option value="90">Apartman Lux — 90 KM/noć</option>
+              <option value="55" selected>Apartman Panonija — 55 KM/noć</option>
+              <option value="50">Soba Stari Grad — 50 KM/noć</option>
+              <option value="320">Wellness Borealis — 320 KM/noć</option>
+              <option value="280">Carpe Diem — 280 KM/noć</option>
+              <option value="50">Square Studio — 50 KM/noć</option>
+            </select>
+          </div>
+
+          <div class="kalk-group">
+            <label for="kalk-noci">Broj noći</label>
+            <input type="number" id="kalk-noci" value="3" min="1" max="365">
+          </div>
+
+          <div class="kalk-group">
+            <label for="kalk-osobe">Broj osoba</label>
+            <select id="kalk-osobe">
+              <option value="1">1 osoba</option>
+              <option value="2" selected>2 osobe</option>
+              <option value="3">3 osobe</option>
+              <option value="4">4 osobe</option>
+              <option value="5">5+ osoba</option>
+            </select>
+          </div>
+
+          <div class="kalk-group">
+            <label for="kalk-sezona">Sezona</label>
+            <select id="kalk-sezona">
+              <option value="1">Niska sezona (×1.0)</option>
+              <option value="1.15" selected>Srednja sezona (×1.15)</option>
+              <option value="1.3">Visoka sezona (×1.3)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="kalk-rezultat" id="kalk-rezultat">
+          <div>
+            <div class="kalk-rezultat-label">Ukupna cijena boravka</div>
+            <div class="kalk-rezultat-iznos" id="kalk-iznos">190 KM</div>
+            <div class="kalk-detalji" id="kalk-detalji">2 noći × 55 KM × sezona 1.15</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="kalk-rezultat-label">Po noći</div>
+            <div style="font-size:1.1rem; font-weight:600; color:rgba(255,255,255,0.7);" id="kalk-po-noci">63 KM</div>
+          </div>
+        </div>
+
+        <p class="kalk-napomena">* Cijena je orijentacijska. Finalna cijena može varirati u zavisnosti od dostupnosti i posebnih ponuda.</p>
+      </div>
+    </section>
