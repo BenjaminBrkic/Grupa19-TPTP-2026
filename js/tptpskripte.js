@@ -30,3 +30,31 @@ if (toggle) {
     localStorage.setItem('tuzlastay-mod', noviMod);
   });
 }
+// ============================================================
+// YOUTUBE MODAL / POPUP LOGIKA
+//
+// Uz pomoć Claude AI-a naučio sam zašto koristimo window.xxx
+// za ove funkcije — HTML onclick="" atribut traži funkcije u
+// globalnom (window) scopu. Da smo ih definisali kao obične
+// const/let, bile bi u lokalnom scopu i HTML ih ne bi vidio.
+// ============================================================
+
+window.otvoriVideo = function () {
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('modalIframe');
+
+  if (modal && iframe) {
+    iframe.src = 'https://www.youtube.com/embed/AL3Wm9eKAnY?autoplay=1&rel=0';
+    modal.style.display = 'flex';
+  }
+};
+
+window.zatvoriVideo = function () {
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('modalIframe');
+
+  if (modal && iframe) {
+    iframe.src = '';
+    modal.style.display = 'none';
+  }
+};

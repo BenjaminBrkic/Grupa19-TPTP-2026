@@ -222,3 +222,155 @@ footer {
   .header-inner { padding: 0.8rem 1rem; }
   .nav-main ul { gap: 1rem; }
 }
+/* ============================================================
+   PAGE HERO
+
+   Uz pomoć Claude AI-a naučio sam kako clamp() funkcioniše
+   — automatski skalira font između min i max vrijednosti
+   ovisno o širini ekrana, bez potrebe za media queryima.
+   ============================================================ */
+
+.page-hero {
+  background-color: var(--boja-tamna);
+  padding: 3.5rem 1.5rem 2.5rem;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-family: var(--font-naslov);
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.page-hero p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   KONTAKT INFO (lijeva strana)
+
+   Uz pomoć Claude AI-a naučio sam kako flex layout radi
+   unutar info-item — ikonica i tekst su poravnati u red,
+   a align-items: flex-start ih zakucava za vrh.
+   ============================================================ */
+
+.contact-layout {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.contact-info {
+  flex: 0 0 280px;
+}
+
+.contact-info h2 {
+  font-family: var(--font-naslov);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+  align-items: flex-start;
+}
+
+.info-icon {
+  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(201,168,76,0.1);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.info-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--boja-tekst-muted);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.info-val {
+  font-size: 0.88rem;
+  color: var(--boja-tekst);
+  line-height: 1.5;
+}
+
+/* ---- YouTube embed ---- */
+.youtube-embed {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--boja-border);
+}
+
+.youtube-embed h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.yt-Okidač {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yt-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.yt-Okidač:hover .yt-thumb {
+  transform: scale(1.03);
+}
+
+.yt-play-dugme {
+  position: absolute;
+  width: 68px;
+  height: 48px;
+  transition: all 0.3s ease;
+}
+
+.yt-Okidač:hover .yt-play-dugme {
+  transform: scale(1.1);
+}
+
+/* ---- Responzivnost ---- */
+@media (max-width: 900px) {
+  .contact-layout {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .contact-info {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-layout {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+}
