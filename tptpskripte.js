@@ -185,3 +185,32 @@ if (visitorEl) {
 
   setTimeout(azurirajPosjetioce, 5000);
 }
+
+// ============================================================
+// 5. SMOOTH SCROLL za bookmark navigaciju
+// Uz pomoć Claude-a razumio sam da CSS scroll-behavior: smooth
+// ne radi u svim browserima, pa dodajemo i JS fallback.
+// ============================================================
+
+document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+  link.addEventListener('click', function (event) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href === '#vrh') return;
+
+    const cilj = document.querySelector(href);
+    if (!cilj) return;
+
+    event.preventDefault();
+
+    const headerVisina = document.querySelector('header') ? document.querySelector('header').offsetHeight : 0;
+    const bookmarkVisina = document.querySelector('.bookmark-nav') ? document.querySelector('.bookmark-nav').offsetHeight : 0;
+    const ukupniOffset = headerVisina + bookmarkVisina + 16;
+
+    const pozicijaElementa = cilj.getBoundingClientRect().top + window.pageYOffset - ukupniOffset;
+
+    window.scrollTo({
+      top: pozicijaElementa,
+      behavior: 'smooth'
+    });
+  });
+});
