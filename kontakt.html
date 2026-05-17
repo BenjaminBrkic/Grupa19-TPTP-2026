@@ -99,3 +99,71 @@
       </div>
 
     </aside>
+    <section class="contact-form-section">
+        <h2>Pošaljite poruku</h2>
+
+        <form id="kontakt-forma" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ime">Ime</label>
+              <input type="text" id="ime" name="ime" placeholder="Vaše ime" autocomplete="given-name">
+              <span class="error-msg" id="error-ime" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="prezime">Prezime</label>
+              <input type="text" id="prezime" name="prezime" placeholder="Vaše prezime" autocomplete="family-name">
+              <span class="error-msg" id="error-prezime" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail adresa</label>
+            <input type="email" id="email" name="email" placeholder="vasa@email.com" autocomplete="email">
+            <span class="error-msg" id="error-email" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="+387 61 123 456" autocomplete="tel">
+            <span class="error-msg" id="error-telefon" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="tema">Tema upita</label>
+            <select id="tema" name="tema">
+              <option value="">-- Odaberite temu --</option>
+              <option value="rezervacija">Rezervacija smještaja</option>
+              <option value="informacije">Informacije o smještaju</option>
+              <option value="prituzba">Pritužba ili problem</option>
+              <option value="saradnja">Saradnja — vlasnici smještaja</option>
+              <option value="ostalo">Ostalo</option>
+            </select>
+            <span class="error-msg" id="error-tema" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="poruka">Poruka</label>
+            <textarea id="poruka" name="poruka" placeholder="Napišite vašu poruku ovdje..." rows="5"></textarea>
+            <span class="error-msg" id="error-poruka" aria-live="polite"></span>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Pošalji poruku</button>
+            <button type="button" class="btn btn-outline" id="reset-btn">Poništi formu</button>
+          </div>
+
+        </form>
+
+        <div class="success-msg" id="success-msg" style="display:none;" aria-live="polite">
+          <span class="success-icon">✓</span>
+          <div>
+            <p id="success-text"></p>
+            <p style="font-size:0.85rem; margin-top:0.3rem;">Javit ćemo vam se u roku od 24 sata.</p>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>

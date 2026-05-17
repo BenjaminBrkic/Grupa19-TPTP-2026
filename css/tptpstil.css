@@ -374,3 +374,172 @@ footer {
     gap: 1.5rem;
   }
 }
+/* ============================================================
+   KONTAKT FORMA (desna strana)
+
+   Uz pomoć Claude AI-a naučio sam kako grid-template-columns:
+   1fr 1fr funkcioniše — dijeli red na dvije jednake kolone,
+   što je korisno za ime i prezime polja jedan pored drugog.
+   ============================================================ */
+
+.contact-form-section {
+  flex: 1;
+}
+
+.contact-form-section h2 {
+  font-family: var(--font-naslov);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--boja-tekst-muted);
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--boja-border);
+  border-radius: var(--radius);
+  font-family: var(--font-tekst);
+  font-size: 0.9rem;
+  background-color: var(--boja-povrsina);
+  color: var(--boja-tekst);
+  transition: border-color var(--tranzicija), box-shadow var(--tranzicija);
+  outline: none;
+  appearance: none;
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: rgba(201,168,76,0.4);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--boja-primarna);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+}
+
+.form-group input.input-error,
+.form-group select.input-error,
+.form-group textarea.input-error {
+  border-color: var(--boja-error);
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.12);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.error-msg {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--boja-error);
+  margin-top: 0.35rem;
+  min-height: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-tekst);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: none;
+  transition: opacity var(--tranzicija), background-color var(--tranzicija),
+              color var(--tranzicija), transform 0.15s ease;
+}
+
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background-color: var(--boja-primarna);
+  color: var(--boja-tamna);
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  color: var(--boja-tamna);
+}
+
+body:not(.dark-mode) .contact-form-section .btn-outline {
+  color: var(--boja-tekst);
+  border-color: var(--boja-border);
+}
+
+body:not(.dark-mode) .contact-form-section .btn-outline:hover {
+  border-color: var(--boja-primarna);
+  color: var(--boja-primarna);
+}
+
+body.dark-mode .btn-outline {
+  color: var(--boja-tekst);
+  border-color: var(--boja-border);
+}
+
+/* ---- Uspješna poruka ---- */
+.success-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  background-color: rgba(39,174,96,0.1);
+  border: 1px solid var(--boja-success);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin-top: 1.2rem;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.success-icon {
+  font-size: 1.2rem;
+  color: var(--boja-success);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.success-msg p {
+  font-size: 0.9rem;
+  color: var(--boja-tekst);
+  font-weight: 500;
+}
+
+/* ---- Responzivnost ---- */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
