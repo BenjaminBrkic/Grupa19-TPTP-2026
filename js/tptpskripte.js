@@ -95,3 +95,73 @@ if (visitorEl) {
 
   setTimeout(azurirajPosjetioce, 5000);
 }
+// ============================================================
+// FILTRIRANJE KARTICA
+// Uz pomoć Claude-a razumio sam kako dataset API funkcioniše —
+// data-type i data-cijena atributi iz HTML-a se čitaju kroz
+// kartica.getAttribute() i porede sa aktivnim filterom
+// ============================================================
+
+const filterLinkovi = document.querySelectorAll('.filter-link');
+const kartice = document.querySelectorAll('.card');
+const noResultsPoruka = document.getElementById('no-results');
+
+let aktivniTip = 'sve';
+let aktivnaCijena = null;
+
+function filtrirajKartice() {
+  let vidljivih = 0;
+
+  kartice.forEach(function (kartica) {
+    const tip = kartica.getAttribute('data-type');
+    const cijena = kartica.getAttribute('data-cijena');
+
+    const odgovaraTip = (aktivniTip === 'sve') || (tip === aktivniTip);
+    const odgovaraCijena = !aktivnaCijena || (cijena === aktivnaCijena);
+
+    if (odgovaraTip && odgovaraCijena) {
+      kartica.style.display = '';
+      vidljivih++;
+    } else {
+      kartica.style.display = 'none';
+    }
+  });
+
+  if (noResultsPoruka) {
+    noResultsPoruka.style.display = vidljivih === 0 ? 'block' : 'none';
+  }
+}
+
+filterLinkovi.forEach(function (link) {
+  link.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const filter = this.getAttribute('data-filter');
+    const cjenovniFilteri = ['do60', '60-150', '150plus'];
+
+    if (cjenovniFilteri.includes(filter)) {
+      if (aktivnaCijena === filter) {
+        aktivnaCijena = null;
+        this.classList.remove('active');
+      } else {
+        filterLinkovi.forEach(function (l) {
+          if (cjenovniFilteri.includes(l.getAttribute('data-filter'))) {
+            l.classList.remove('active');
+          }
+        });
+        aktivnaCijena = filter;
+        this.classList.add('active');
+      }
+    } else {
+      filterLinkovi.forEach(function (l) {
+        if (!cjenovniFilteri.includes(l.getAttribute('data-filter'))) {
+          l.classList.remove('active');
+        }
+      });
+      aktivniTip = filter;
+      this.classList.add('active');
+    }
+
+    filtrirajKartice();
+  });
+});
