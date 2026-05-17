@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tuzla Stay</title>
-  <link rel="icon" type="image/png" href="tsl.png">
+  <link rel="icon" type="image/png" href="images/tsl.png">
   <link rel="stylesheet" href="css/tptpstil.css">
 </head>
 <body>
@@ -19,19 +19,20 @@
           <li><a href="index.html" class="active">Početna</a></li>
           <li><a href="sadrzaj.html">Smještaj</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="https://github.com/BenjaminBrkic/Grupa19-TPTP-2026" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
       </nav>
       <button id="dark-mode-toggle" aria-label="Promijeni temu">🌙</button>
     </div>
   </header>
 
-    <!-- Hero sekcija -->
+  <!-- Hero sekcija -->
   <section class="hero">
     <div class="hero-content">
       <span class="hero-badge">Tuzla, Bosna i Hercegovina</span>
       <h1>Pronađi savršen<br><em>smještaj u Tuzli</em></h1>
       <p>Hoteli, apartmani, sobe i vikendice u Tuzli na jednom mjestu. Jednostavno pronađite idealan smještaj za vaš boravak.</p>
-      <div class="hero-btns">
+      <div class="hero-btns"> 
         <a href="sadrzaj.html" class="btn btn-primary">Pregledaj smještaj</a>
         <a href="kontakt.html" class="btn btn-outline">Kontaktirajte nas</a>
       </div>
@@ -54,35 +55,33 @@
 
   <div class="main-layout">
 
-  <!-- Sekundarna navigacija / filteri -->
-  <nav class="nav-secondary" aria-label="Filtriranje smještaja">
-    <h2>Filtriraj po vrsti</h2>
-    <ul>
-      <li><a href="#" class="filter-link active" data-filter="sve">Svi smještaji</a></li>
-      <li><a href="#" class="filter-link" data-filter="apartman">Apartmani</a></li>
-      <li><a href="#" class="filter-link" data-filter="soba">Sobe</a></li>
-      <li><a href="#" class="filter-link" data-filter="vila">Vile</a></li>
-      <li><a href="#" class="filter-link" data-filter="hotel">Hotel</a></li>
-      <li><a href="#" class="filter-link" data-filter="studio">Studio</a></li>
-    </ul>
+    <!-- Sekundarna navigacija / filteri -->
+    <nav class="nav-secondary" aria-label="Filtriranje smještaja">
+      <h2>Filtriraj po vrsti</h2>
+      <ul>
+        <li><a href="#" class="filter-link active" data-filter="sve">Svi smještaji</a></li>
+        <li><a href="#" class="filter-link" data-filter="apartman">Apartmani</a></li>
+        <li><a href="#" class="filter-link" data-filter="soba">Sobe</a></li>
+        <li><a href="#" class="filter-link" data-filter="vila">Vile</a></li>
+        <li><a href="#" class="filter-link" data-filter="hotel">Hotel</a></li>
+        <li><a href="#" class="filter-link" data-filter="studio">Studio</a></li>
+      </ul>
 
-    <h2>Cijena po noći</h2>
-    <ul>
-      <li><a href="#" class="filter-link" data-filter="do60">Do 60 KM</a></li>
-      <li><a href="#" class="filter-link" data-filter="60-150">60 – 150 KM</a></li>
-      <li><a href="#" class="filter-link" data-filter="150plus">150+ KM</a></li>
-    </ul>
+      <h2>Cijena po noći</h2>
+      <ul>
+        <li><a href="#" class="filter-link" data-filter="do60">Do 60 KM</a></li>
+        <li><a href="#" class="filter-link" data-filter="60-150">60 – 150 KM</a></li>
+        <li><a href="#" class="filter-link" data-filter="150plus">150+ KM</a></li>
+      </ul>
 
-    <!-- Interaktivni element: live brojač posjeta -->
-    <div class="visitor-counter">
-      <p class="counter-label">Aktivnih posjetilaca</p>
-      <p class="counter-number" id="visitor-count">1</p>
-    </div>
-  </nav>
+      <!-- Interaktivni element: live brojač posjeta -->
+      <div class="visitor-counter">
+        <p class="counter-label">Aktivnih posjetilaca</p>
+        <p class="counter-number" id="visitor-count">1</p>
+      </div>
+    </nav>
 
-</div>
-  <!-- OVDJE IDE SADRŽAJ -->
-<!-- Glavna sekcija sa karticama -->
+    <!-- Glavna sekcija sa karticama -->
     <main id="main-content">
       <section class="cards-section">
         <h2>Istaknuti smještaj</h2>
@@ -90,7 +89,7 @@
 
         <div class="cards-grid" id="cards-grid">
 
-          <!-- Kartice: HOTEL -->
+ <!-- Kartice: HOTEL -->
           <article class="card" data-type="hotel" data-cijena="150plus">
             <picture>
               <source srcset="images/Mellain.webp" type="image/webp">
@@ -107,7 +106,7 @@
             </div>
           </article>
 
-          <article class="card" data-type="hotel" data-cijena="60-150">
+          <article class="card" data-type="hotel" data-cijena="150plus">
             <picture>
               <source srcset="images/Salis.webp" type="image/webp">
               <img src="images/Salis.jpg" alt="Vanjski pogled na Hotel Salis" loading="lazy">
@@ -138,8 +137,7 @@
               </div>
             </div>
           </article>
-
-          <!-- Kartice: APARTMAN -->
+ <!-- Kartice: APARTMAN -->
           <article class="card" data-type="apartman" data-cijena="60-150">
             <picture>
               <source srcset="images/LUX.webp" type="image/webp">
@@ -171,8 +169,7 @@
               </div>
             </div>
           </article>
-
-          <!-- Kartice: SOBE -->
+<!-- Kartice: SOBE -->
           <article class="card" data-type="soba" data-cijena="do60">
             <picture>
               <source srcset="images/StariGrad.webp" type="image/webp">
@@ -181,15 +178,15 @@
             <div class="card-body">
               <span class="card-badge">Soba</span>
               <h3><a href="sadrzaj.html">Soba Stari Grad</a></h3>
-              <p>Udoban smještaj u centru Tuzle, idealan za kraći boravak i obilazak grada, udaljen svega nekoliko minuta od Panonskih jezera.</p>
+              <p >Udoban smještaj u centru Tuzle, idealan za kraći boravak i obilazak grada, udaljen svega nekoliko minuta od Panonskih jezera.</p>
               <div class="card-footer">
                 <span class="card-price">50 KM <small>/ noć</small></span>
-                <span class="card-rating">★★★★☆ 4.4/5</span>
+                <span class="card-rating">★★★★☆4.4/5</span>
               </div>
             </div>
           </article>
 
-          <!-- Kartice: VILE -->
+<!-- Kartice: VILE -->
           <article class="card" data-type="vila" data-cijena="150plus">
             <picture>
               <source srcset="images/WellnessBorealis.webp" type="image/webp">
@@ -216,13 +213,12 @@
               <h3><a href="sadrzaj.html">Carpe Diem</a></h3>
               <p>Moderna vila u Tuzli sa privatnim bazenom, saunom i BBQ prostorom, savršena za odmor, proslave i porodična druženja.</p>
               <div class="card-footer">
-                <span class="card-price">280 KM <small>/ noć</small></span>
+                <span class="card-price">280 KM  <small>/ noć</small></span>
                 <span class="card-rating">★★★★☆ 4.5</span>
               </div>
             </div>
           </article>
-
-          <!-- Kartice: STUDIO -->
+<!-- Kartice: STUDIO -->
           <article class="card" data-type="studio" data-cijena="do60">
             <picture>
               <source srcset="images/SquareStudio.webp" type="image/webp">
@@ -231,7 +227,7 @@
             <div class="card-body">
               <span class="card-badge">Studio</span>
               <h3><a href="sadrzaj.html">Square Studio</a></h3>
-              <p>Moderan studio apartman u centru Tuzle sa elegantnim enterijerom i potpuno opremljenim sadržajima, idealan za parove i kraći boravak.</p>
+              <p>Moderan studio apartman u centru Tuzle sa elegantnim enterijerom i potpuno opremljenim sadržajima, idealan za parove i kraći boravak</p>
               <div class="card-footer">
                 <span class="card-price">50 KM <small>/ noć</small></span>
                 <span class="card-rating">★★★★★ 4.9</span>
@@ -274,7 +270,7 @@
     </aside>
 
   </div><!-- /.main-layout -->
-  
+
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">Tuzla<span>Stay</span></div>
@@ -284,13 +280,14 @@
         <p>TPTP — Akademska godina 2025/2026</p>
       </div>
       <div class="footer-links">
-        <a href="https://github.com/username/GrupaX-TPTP-2026" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/BenjaminBrkic/Grupa19-TPTP-2026" target="_blank" rel="noopener">GitHub</a>
         <a href="kontakt.html">Kontakt</a>
         <a href="sadrzaj.html">Smještaj</a>
       </div>
     </div>
   </footer>
 
+  <!-- Scroll to top dugme -->
   <button id="scroll-to-top" aria-label="Vrati se na vrh stranice">↑</button>
 
   <script src="js/tptpskripte.js"></script>

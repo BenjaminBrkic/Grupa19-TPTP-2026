@@ -1,4 +1,9 @@
+// ============================================================
 // 1. TAMNI / SVJETLI MOD
+// Uz pomoć Claude-a razumio sam da localStorage.getItem vraća
+// null ako ključ ne postoji, pa koristim || 'light' kao default
+// ============================================================
+
 const toggle = document.getElementById('dark-mode-toggle');
 
 function primijeniMod(mod) {
@@ -23,7 +28,10 @@ if (toggle) {
   });
 }
 
+// ============================================================
 // 2. SCROLL TO TOP
+// ============================================================
+
 const scrollBtn = document.getElementById('scroll-to-top');
 
 if (scrollBtn) {
@@ -34,33 +42,31 @@ if (scrollBtn) {
       scrollBtn.classList.remove('vidljiv');
     }
   });
-
   scrollBtn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
 // ============================================================
-// ANIMIRANI BROJAČI U HERO SEKCIJI
+// 3. ANIMIRANI BROJAČI U HERO SEKCIJI
 // Uz pomoć Claude-a razumio sam kako requestAnimationFrame
-// funkcioniše i zašto je bolji od setInterval za animacije —
-// sinhronizovan je sa browserom i ne troši nepotrebne resurse
+// funkcioniše — sinhronizovan je sa browserom i ne troši
+// nepotrebne resurse kao setInterval
 // ============================================================
 
 function animirajBrojac(element, cilj, trajanje, sufiks) {
   if (!element) return;
-
   const pocetak = performance.now();
 
   function korak(trenutnoVrijeme) {
     const proslo = trenutnoVrijeme - pocetak;
     const napredak = Math.min(proslo / trajanje, 1);
+    /* Uz pomoć Claude-a razumio sam easing funkciju —
+       Math.pow(1 - napredak, 2) pravi efekat usporavanja pri kraju */
     const eased = 1 - Math.pow(1 - napredak, 2);
     const trenutnaVrijednost = Math.round(eased * cilj);
     element.textContent = trenutnaVrijednost.toLocaleString() + (sufiks || '');
-    if (napredak < 1) {
-      requestAnimationFrame(korak);
-    }
+    if (napredak < 1) requestAnimationFrame(korak);
   }
 
   requestAnimationFrame(korak);
@@ -72,11 +78,10 @@ window.addEventListener('load', function () {
 });
 
 // ============================================================
-// LIVE VISITOR COUNTER
-// Uz pomoć Claude-a razumio sam kako setTimeout funkcioniše —
-// objasnio mi je razliku između setTimeout (jednom) i
-// setInterval (stalno), i zašto je bolje koristiti rekurzivni
-// setTimeout kad interval nije fiksni već nasumičan
+// 4. LIVE VISITOR COUNTER
+// Uz pomoć Claude-a razumio sam razliku između setTimeout i
+// setInterval — koristim rekurzivni setTimeout jer je interval
+// nasumičan, a ne fiksni
 // ============================================================
 
 const visitorEl = document.getElementById('visitor-count');
@@ -95,11 +100,11 @@ if (visitorEl) {
 
   setTimeout(azurirajPosjetioce, 5000);
 }
+
 // ============================================================
-// FILTRIRANJE KARTICA
+// 5. FILTRIRANJE KARTICA
 // Uz pomoć Claude-a razumio sam kako dataset API funkcioniše —
-// data-type i data-cijena atributi iz HTML-a se čitaju kroz
-// kartica.getAttribute() i porede sa aktivnim filterom
+// data-type i data-cijena atributi se čitaju kroz getAttribute()
 // ============================================================
 
 const filterLinkovi = document.querySelectorAll('.filter-link');
@@ -115,7 +120,6 @@ function filtrirajKartice() {
   kartice.forEach(function (kartica) {
     const tip = kartica.getAttribute('data-type');
     const cijena = kartica.getAttribute('data-cijena');
-
     const odgovaraTip = (aktivniTip === 'sve') || (tip === aktivniTip);
     const odgovaraCijena = !aktivnaCijena || (cijena === aktivnaCijena);
 
@@ -135,7 +139,6 @@ function filtrirajKartice() {
 filterLinkovi.forEach(function (link) {
   link.addEventListener('click', function (event) {
     event.preventDefault();
-
     const filter = this.getAttribute('data-filter');
     const cjenovniFilteri = ['do60', '60-150', '150plus'];
 
