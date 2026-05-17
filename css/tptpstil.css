@@ -344,6 +344,126 @@ footer {
   .stat-item { flex: 0 0 50%; }
 }
 
+/* ============================================================
+   MAIN LAYOUT I SEKUNDARNA NAVIGACIJA
+   ============================================================ */
+
+.main-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--razmak-veliki) 1.5rem;
+  gap: var(--razmak-veliki);
+  align-items: flex-start;
+}
+
+.nav-secondary {
+  flex: 0 0 200px;
+  position: sticky;
+  top: 80px;
+  background-color: var(--boja-povrsina);
+  border: 1px solid var(--boja-border);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.nav-secondary h2 {
+  font-family: var(--font-naslov);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--boja-tekst-muted);
+  margin-bottom: 0.7rem;
+  margin-top: 1rem;
+}
+
+.nav-secondary h2:first-child {
+  margin-top: 0;
+}
+
+.nav-secondary ul {
+  margin-bottom: 0.5rem;
+}
+
+.nav-secondary li {
+  margin-bottom: 0.2rem;
+}
+
+.filter-link {
+  display: block;
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  color: var(--boja-tekst);
+  transition: background-color var(--tranzicija), color var(--tranzicija);
+  cursor: pointer;
+}
+
+.filter-link:hover,
+.filter-link.active {
+  background-color: rgba(201,168,76,0.12);
+  color: var(--boja-primarna);
+}
+
+/* Visitor counter */
+/* Uz pomoć Claude-a razumio sam kako koristiti setTimeout
+   za simulaciju živog brojača posjetilaca */
+.visitor-counter {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--boja-border);
+  text-align: center;
+}
+
+.counter-label {
+  font-size: 0.75rem;
+  color: var(--boja-tekst-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.counter-number {
+  font-family: var(--font-naslov);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--boja-primarna);
+  animation: countUp 0.5s ease both;
+}
+
+/* ---- Responzivnost ---- */
+@media (min-width: 600px) and (max-width: 900px) {
+  .nav-secondary {
+    flex: 0 0 100%;
+    position: static;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.8rem 1rem;
+  }
+  .nav-secondary h2 {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-layout {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .nav-secondary {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.8rem;
+  }
+  .nav-secondary h2 {
+    display: none;
+  }
+}
 /* ---- Media queries ---- */
 @media (max-width: 600px) {
   .header-inner { padding: 0.8rem 1rem; flex-wrap: wrap; gap: 0.5rem; }
