@@ -214,3 +214,134 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     });
   });
 });
+
+// ============================================================
+// 6. VALIDACIJA FORME (kontakt.html)
+// Isključivo JavaScript — bez HTML5 required/pattern atributa.
+// Regex pattern za email pronašao/la uz pomoć Claude-a.
+// ============================================================
+
+const emailRegex = /^[\w.-]+@[\w.-]+\.[a-z]{2,}$/i;
+const telefonRegex = /^\+?[\d\s\-\(\)]{7,15}$/;
+
+const forma = document.getElementById('kontakt-forma');
+const successMsg = document.getElementById('success-msg');
+const successText = document.getElementById('success-text');
+const resetBtn = document.getElementById('reset-btn');
+
+function prikaziGresku(idPolja, poruka) {
+  const polje = document.getElementById(idPolja);
+  const greska = document.getElementById('error-' + idPolja);
+
+  if (polje) polje.classList.add('input-error');
+  if (greska) greska.textContent = poruka;
+}
+
+function ocistiGresku(idPolja) {
+  const polje = document.getElementById(idPolja);
+  const greska = document.getElementById('error-' + idPolja);
+
+  if (polje) polje.classList.remove('input-error');
+  if (greska) greska.textContent = '';
+}
+
+function validirajFormu() {
+  let ispravna = true;
+
+  ['ime', 'prezime', 'email', 'telefon', 'tema', 'poruka'].forEach(ocistiGresku);
+
+  const imeVrijednost = document.getElementById('ime') ? document.getElementById('ime').value.trim() : '';
+  if (imeVrijednost.length < 2) {
+    prikaziGresku('ime', 'Ime mora imati najmanje 2 znaka.');
+    ispravna = false;
+  }
+
+  const prezimeVrijednost = document.getElementById('prezime') ? document.getElementById('prezime').value.trim() : '';
+  if (prezimeVrijednost.length < 2) {
+    prikaziGresku('prezime', 'Prezime mora imati najmanje 2 znaka.');
+    ispravna = false;
+  }
+
+  const emailVrijednost = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
+  if (!emailRegex.test(emailVrijednost)) {
+    prikaziGresku('email', 'Unesite ispravnu e-mail adresu (npr. ime@domena.ba).');
+    ispravna = false;
+  }
+
+  const telefonVrijednost = document.getElementById('telefon') ? document.getElementById('telefon').value.trim() : '';
+  if (!telefonRegex.test(telefonVrijednost)) {
+    prikaziGresku('telefon', 'Telefon može sadržavati samo cifre, razmake, crtice i +.');
+    ispravna = false;
+  }
+
+  const temaVrijednost = document.getElementById('tema') ? document.getElementById('tema').value : '';
+  if (!temaVrijednost) {
+    prikaziGresku('tema', 'Molimo odaberite temu upita.');
+    ispravna = false;
+  }
+
+  const porukaVrijednost = document.getElementById('poruka') ? document.getElementById('poruka').value.trim() : '';
+  if (porukaVrijednost.length < 10) {
+    prikaziGresku('poruka', 'Poruka mora imati najmanje 10 znakova.');
+    ispravna = false;
+  }
+
+  return ispravna;
+}
+
+if (forma) {
+  forma.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (successMsg) successMsg.style.display = 'none';
+
+    if (validirajFormu()) {
+      const ime = document.getElementById('ime').value.trim();
+      const prezime = document.getElementById('prezime').value.trim();
+
+      if (successText) {
+        successText.textContent = 'Hvala, ' + ime + ' ' + prezime + '! Vaša poruka je uspješno poslana.';
+      }
+
+      if (successMsg) {
+        successMsg.style.display = 'flex';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      forma.reset();
+    }
+  });
+}
+
+if (resetBtn) {
+  resetBtn.addEventListener('click', function () {
+    if (forma) forma.reset();
+    ['ime', 'prezime', 'email', 'telefon', 'tema', 'poruka'].forEach(ocistiGresku);
+    if (successMsg) successMsg.style.display = 'none';
+  });
+}
+
+['ime', 'prezime', 'email', 'telefon', 'tema', 'poruka'].forEach(function (idPolja) {
+  const el = document.getElementById(idPolja);
+  if (el) {
+    el.addEventListener('input', function () {
+      ocistiGresku(idPolja);
+    });
+    el.addEventListener('blur', function () {
+      const val = this.value.trim();
+
+      if (idPolja === 'ime' && val.length > 0 && val.length < 2) {
+        prikaziGresku('ime', 'Ime mora imati najmanje 2 znaka.');
+      }
+      if (idPolja === 'prezime' && val.length > 0 && val.length < 2) {
+        prikaziGresku('prezime', 'Prezime mora imati najmanje 2 znaka.');
+      }
+      if (idPolja === 'email' && val.length > 0 && !emailRegex.test(val)) {
+        prikaziGresku('email', 'Unesite ispravnu e-mail adresu.');
+      }
+      if (idPolja === 'telefon' && val.length > 0 && !telefonRegex.test(val)) {
+        prikaziGresku('telefon', 'Neispravan format telefona.');
+      }
+    });
+  }
+});
