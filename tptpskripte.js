@@ -370,3 +370,60 @@ window.zatvoriVideo = function() {
     modal.style.display = "none";
   }
 };
+
+// ============================================================
+// 8. KALKULATOR CIJENE SMJEŠTAJA
+// Uz pomoć Claude-a razumio sam kako koristiti parseFloat i
+// toFixed za formatiranje decimalnih brojeva u JS.
+// ============================================================
+
+function izracunajCijenu() {
+  var smjestajEl = document.getElementById('kalk-smjestaj');
+  var nociEl = document.getElementById('kalk-noci');
+  var sezonaEl = document.getElementById('kalk-sezona');
+  var iznosEl = document.getElementById('kalk-iznos');
+  var detaljiEl = document.getElementById('kalk-detalji');
+  var poNociEl = document.getElementById('kalk-po-noci');
+
+  if (!smjestajEl || !nociEl || !sezonaEl || !iznosEl || !detaljiEl || !poNociEl) {
+    return;
+  }
+
+  var cijenaPoNoci = parseFloat(smjestajEl.value);
+  var brojNoci = parseInt(nociEl.value);
+  var faktorSezone = parseFloat(sezonaEl.value);
+
+  if (isNaN(cijenaPoNoci) || isNaN(brojNoci) || isNaN(faktorSezone)) {
+    return;
+  }
+
+  var cijenaSaSezonom = cijenaPoNoci * faktorSezone;
+  var ukupno = cijenaSaSezonom * brojNoci;
+
+  iznosEl.textContent = ukupno.toFixed(2) + " KM";
+  poNociEl.textContent = cijenaSaSezonom.toFixed(2) + " KM";
+
+  detaljiEl.textContent =
+    brojNoci + " noći × " +
+    cijenaPoNoci + " KM × sezona " +
+    faktorSezone;
+}
+
+// Event listeneri
+document.addEventListener('DOMContentLoaded', function () {
+  var elementi = [
+    'kalk-smjestaj',
+    'kalk-noci',
+    'kalk-sezona'
+  ];
+
+  elementi.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('change', izracunajCijenu);
+      el.addEventListener('input', izracunajCijenu);
+    }
+  });
+
+  izracunajCijenu();
+});
