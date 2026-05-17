@@ -129,3 +129,36 @@ filterLinkovi.forEach(function (link) {
     filtrirajKartice();
   });
 });
+
+// ============================================================
+// 3. ANIMIRANI BROJAČI u hero sekciji
+// Uz pomoć Claude-a razumio sam requestAnimationFrame i kako
+// se koristi za smooth animacije bez setInterval.
+// ============================================================
+
+function animirajBrojac(element, cilj, trajanje, sufiks) {
+  if (!element) return;
+
+  const pocetak = performance.now();
+
+  function korak(trenutnoVrijeme) {
+    const proslo = trenutnoVrijeme - pocetak;
+    const napredak = Math.min(proslo / trajanje, 1);
+
+    const eased = 1 - Math.pow(1 - napredak, 2);
+    const trenutnaVrijednost = Math.round(eased * cilj);
+
+    element.textContent = trenutnaVrijednost.toLocaleString() + (sufiks || '');
+
+    if (napredak < 1) {
+      requestAnimationFrame(korak);
+    }
+  }
+
+  requestAnimationFrame(korak);
+}
+
+window.addEventListener('load', function () {
+  animirajBrojac(document.getElementById('counter-smjestaj'), 120, 1500, '+');
+  animirajBrojac(document.getElementById('counter-gosti'), 2000, 2000, '+');
+});
