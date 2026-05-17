@@ -152,6 +152,197 @@ footer {
   box-shadow: 0 6px 24px rgba(201,168,76,0.5);
   transform: translateY(-2px);
 }
+/* ============================================================
+   HERO SEKCIJA
+   ============================================================ */
+
+/* Uz pomoć Claude-a razumio sam kako radial-gradient funkcioniše
+   i kako ga koristiti kao dekorativni overlay sa ::before pseudo-elementom */
+.hero {
+  background-color: var(--boja-tamna);
+  padding: 5rem 1.5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+  animation: fadeInUp 0.7s ease both;
+}
+
+.hero-badge {
+  display: inline-block;
+  border: 1px solid rgba(201,168,76,0.5);
+  color: var(--boja-primarna);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+  margin-bottom: 1.5rem;
+  /* Uz pomoć Claude-a razumio sam kako animacija pulsiranja
+     radi sa box-shadow i kako se ponavlja beskonačno */
+  animation: pulsiraj 2.5s ease infinite;
+}
+
+/* Uz pomoć Claude-a razumio sam kako clamp() funkcioniše —
+   automatski skalira font između minimuma i maksimuma ovisno o širini ekrana */
+.hero h1 {
+  font-family: var(--font-naslov);
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.hero h1 em {
+  color: var(--boja-primarna);
+  font-style: normal;
+}
+
+.hero p {
+  color: rgba(255,255,255,0.55);
+  font-size: 1rem;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 2rem;
+}
+
+.stat-item {
+  flex: 1;
+  max-width: 200px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-num {
+  display: block;
+  font-family: var(--font-naslov);
+  font-size: 2rem;
+  color: var(--boja-primarna);
+  font-weight: 700;
+  animation: countUp 0.6s ease both;
+}
+
+.stat-lbl {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.3rem;
+}
+
+/* Dugmad koja se koriste u hero sekciji */
+.btn {
+  display: inline-block;
+  font-family: var(--font-tekst);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: none;
+  transition: opacity var(--tranzicija), background-color var(--tranzicija), color var(--tranzicija), transform 0.15s ease;
+  text-decoration: none;
+}
+
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background-color: var(--boja-primarna);
+  color: var(--boja-tamna);
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  color: var(--boja-tamna);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-outline:hover {
+  border-color: var(--boja-primarna);
+  color: var(--boja-primarna);
+}
+
+/* ============================================================
+   KEYFRAMES ANIMACIJE ZA HERO
+   Uz pomoć Claude-a razumio sam kako @keyframes funkcionišu
+   i kako kombinovati opacity i transform za smooth animacije
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulsiraj {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(201, 168, 76, 0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---- Responzivnost za hero ---- */
+@media (max-width: 600px) {
+  .hero { padding: 2.5rem 1rem 0; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .hero-stats { flex-direction: column; }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 1rem;
+  }
+  .stat-item:last-child { border-bottom: none; }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .hero { padding: 3.5rem 1rem 0; }
+  .hero-stats { flex-wrap: wrap; }
+  .stat-item { flex: 0 0 50%; }
+}
 
 /* ---- Media queries ---- */
 @media (max-width: 600px) {
