@@ -162,3 +162,26 @@ window.addEventListener('load', function () {
   animirajBrojac(document.getElementById('counter-smjestaj'), 120, 1500, '+');
   animirajBrojac(document.getElementById('counter-gosti'), 2000, 2000, '+');
 });
+
+// ============================================================
+// 4. LIVE VISITOR COUNTER (interaktivni dinamički element)
+// Simulira aktivan broj posjetilaca. Mijenja se svakih ~5 sekundi.
+// ============================================================
+
+const visitorEl = document.getElementById('visitor-count');
+
+if (visitorEl) {
+  let bazaBroj = 12 + Math.floor(Math.random() * 20);
+  visitorEl.textContent = bazaBroj;
+
+  function azurirajPosjetioce() {
+    const promjena = Math.floor(Math.random() * 7) - 3;
+    bazaBroj = Math.max(5, Math.min(50, bazaBroj + promjena));
+    visitorEl.textContent = bazaBroj;
+
+    const sljedecaAktualizacija = 4000 + Math.random() * 3000;
+    setTimeout(azurirajPosjetioce, sljedecaAktualizacija);
+  }
+
+  setTimeout(azurirajPosjetioce, 5000);
+}
