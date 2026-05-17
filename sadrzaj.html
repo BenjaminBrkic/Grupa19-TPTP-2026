@@ -1,1 +1,509 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smještaj | Tuzla Stay</title>
+  <link rel="icon" type="image/png" href="images/tsl.png">
+  <link rel="stylesheet" href="css/tptpstil.css">
+  
+</head>
+<body>
+  <div id="vrh"></div>
+  
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <a href="index.html"><span class="logo-main">Tuzla</span><span class="logo-accent">Stay</span></a>
+      </div>
+      <nav class="nav-main" aria-label="Glavna navigacija">
+        <ul>
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="sadrzaj.html" class="active">Smještaj</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="https://github.com/BenjaminBrkic/Grupa19-TPTP-2026" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </nav>
+      <button id="dark-mode-toggle" aria-label="Promijeni temu">🌙</button>
+    </div>
+  </header>
 
+  <nav class="bookmark-nav" aria-label="Bookmark navigacija">
+    <div class="bookmark-inner">
+      <span>Skoči na:</span>
+      <a href="#cjenovnik">Cjenovnik</a>
+      <a href="#kategorije-mapa">Kategorije smještaja</a>
+      <a href="#galerija">Galerija smještaja</a>
+      <a href="#kalkulator">Kalkulator cijene</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="page-hero">
+      <h1>Sav smještaj u Tuzli</h1>
+      <p>Detaljni pregled svih dostupnih smještajnih opcija</p>
+    </section>
+
+    <section id="cjenovnik" class="content-section">
+      <h2>Cjenovnik smještaja <span class="section-anchor"></span></h2> 
+      <p>Pregled cijena, kapaciteta i ocjena za sve smještajne jedinice na platformi.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <caption>Cjenovnik i karakteristike smještajnih jedinica — Tuzla Stay 2025/2026</caption>
+          <thead>
+            <tr>
+              <th scope="col">Naziv smještaja</th>
+              <th scope="col">Vrsta</th>
+              <th scope="col">Lokacija</th>
+              <th scope="col">Cijena (KM/noć)</th>
+              <th scope="col">Kapacitet</th>
+              <th scope="col">Ocjena</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hotel Mellain</td>
+              <td>Hotel</td>
+              <td>Centar grada / Bulevar</td>
+              <td>170 KM</td>
+              <td>2–4 osobe</td>
+              <td>★★★★☆ (4.5)</td>
+            </tr>
+            <tr>
+              <td>Hotel Salis</td>
+              <td>Hotel</td>
+              <td>Zapadni dio Tuzle</td>
+              <td>155 KM</td>
+              <td>2–3 osobe</td>
+              <td>★★★★★ (4.7)</td>
+            </tr>
+            <tr>
+              <td>Hotel Tuzla</td>
+              <td>Hotel</td>
+              <td>Stupine</td>
+              <td>140 KM</td>
+              <td>2–3 osobe</td>
+              <td>★★★★★ (4.6)</td>
+            </tr>
+            <tr>
+              <td>Apartman Lux</td>
+              <td>Apartman</td>
+              <td>Centar grada</td>
+              <td>90 KM</td>
+              <td>2 osobe</td>
+              <td>★★★★★ (4.8)</td>
+            </tr>
+            <tr>
+              <td>Apartman Panonija</td>
+              <td>Apartman</td>
+              <td>Blizina Panonskih jezera</td>
+              <td>55 KM</td>
+              <td>2 osobe</td>
+              <td>★★★★★ (5.0)</td>
+            </tr>
+            <tr>
+              <td>Soba Stari Grad</td>
+              <td>Soba</td>
+              <td>Stari Grad</td>
+              <td>50 KM</td>
+              <td>1–2 osobe</td>
+              <td>★★★★☆ (4.4)</td>
+            </tr>
+            <tr>
+              <td>Wellness Borealis</td>
+              <td>Vila</td>
+              <td>Mirna zona izvan centra</td>
+              <td>320 KM</td>
+              <td>6–10 osoba</td>
+              <td>★★★★★ (4.9)</td>
+            </tr>
+            <tr>
+              <td>Carpe Diem</td>
+              <td>Vila</td>
+              <td>Priroda i mirniji dio grada</td>
+              <td>280 KM</td>
+              <td>6–10 osoba</td>
+              <td>★★★★☆ (4.5)</td>
+            </tr>
+            <tr>
+              <td>Square Studio</td>
+              <td>Studio</td>
+              <td>Centar grada</td>
+              <td>50 KM</td>
+              <td>2 osobe</td>
+              <td>★★★★★ (4.9)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================================================
+         IMAGE MAP — KATEGORIJE SMJEŠTAJA (4 slike)
+         Dolazi odmah nakon cjenovnika, klikom vodi na
+         odgovarajuću kategoriju u galeriji ispod.
+         ================================================ -->
+    <section id="kategorije-mapa" class="content-section">
+      <h2>Kategorije smještaja <span class="section-anchor"><a href="#vrh">↑ Vrh</a></span></h2>
+      <p>Kliknite na kategoriju da odmah skočite na tu vrstu smještaja u galeriji ispod.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; border-radius:12px; overflow:hidden;">
+
+        <!-- HOTELI -->
+        <div style="position:relative;">
+          <img
+            src="images/kat-hoteli.jpg"
+            alt="Hoteli — Mellain, Salis, Tuzla"
+            usemap="#mapa-hoteli"
+            style="width:100%; display:block; cursor:pointer;"
+          >
+          <map name="mapa-hoteli">
+            <area
+              shape="rect"
+              coords="0,0,1024,637"
+              href="sadrzaj.html#kat-hoteli"
+              alt="Hoteli — kliknite za galeriju hotela"
+              title="Pogledaj hotele u galeriji">
+          </map>
+        </div>
+
+        <!-- APARTMANI -->
+        <div style="position:relative;">
+          <img
+            src="images/kat-apartmani.jpg"
+            alt="Apartmani — Lux, Panonija"
+            usemap="#mapa-apartmani"
+            style="width:100%; display:block; cursor:pointer;"
+          >
+          <map name="mapa-apartmani">
+            <area
+              shape="rect"
+              coords="0,0,1024,637"
+              href="sadrzaj.html#kat-apartmani"
+              alt="Apartmani — kliknite za galeriju apartmana"
+              title="Pogledaj apartmane u galeriji">
+          </map>
+        </div>
+
+        <!-- VILE -->
+        <div style="position:relative;">
+          <img
+            src="images/kat-vile.jpg"
+            alt="Vile — Wellness Borealis, Carpe Diem"
+            usemap="#mapa-vile"
+            style="width:100%; display:block; cursor:pointer;"
+          >
+          <map name="mapa-vile">
+            <area
+              shape="rect"
+              coords="0,0,1024,637"
+              href="sadrzaj.html#kat-vile"
+              alt="Vile — kliknite za galeriju vila"
+              title="Pogledaj vile u galeriji">
+          </map>
+        </div>
+
+        <!-- STUDIO & SOBE -->
+        <div style="position:relative;">
+          <img
+            src="images/kat-studio-sobe.jpg"
+            alt="Studio i Sobe — Square Studio, Stari Grad"
+            usemap="#mapa-studio"
+            style="width:100%; display:block; cursor:pointer;"
+          >
+          <map name="mapa-studio">
+            <area
+              shape="rect"
+              coords="0,0,1024,637"
+              href="sadrzaj.html#kat-studio"
+              alt="Studio i Sobe — kliknite za galeriju"
+              title="Pogledaj studije i sobe u galeriji">
+          </map>
+        </div>
+
+      </div>
+      <p style="text-align:center; color:#888; font-size:0.85rem; margin-top:0.75rem;">
+        Kliknite na kategoriju — odvest će vas direktno na taj dio galerije ↓
+      </p>
+    </section>
+
+    <section id="galerija" class="content-section">
+      <h2>Galerija smještaja <span class="section-anchor"><a href="#vrh">↑ Vrh</a></span></h2>
+      <p>Pogledajte kako izgledaju naši smještaji iznutra i izvana.</p>
+
+      <div class="galerija-kategorije-wrapper">
+        
+        <div class="kategorija-red" id="kat-hoteli">
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="images/Mellain.jpg" alt="Vanjski pogled na Hotel Mellain" loading="lazy">
+              <figcaption>Hotel Mellain — eksterijer</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="images/Salis.jpg" alt="Vanjski pogled na Hotel Salis" loading="lazy">
+              <figcaption>Hotel Salis — eksterijer</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="images/Tuzla.jpg" alt="Vanjski pogled na Hotel Tuzla" loading="lazy">
+              <figcaption>Hotel Tuzla — eksterijer</figcaption>
+            </figure>
+          </div>
+
+          <div class="kategorije-tekst">
+            <ul class="nested-list">
+              <li class="kat-glavna">Hoteli
+                <ul>
+                  <li>Hotel Mellain
+                    <ul>
+                      <li>Centar grada</li>
+                      <li>★★★★☆ (4.5)</li>
+                      <li>Cijena: 170 KM/noć</li>
+                      <li>Kapacitet: 2–4 osobe</li>
+                    </ul>
+                  </li>
+                  <li>Hotel Salis
+                    <ul>
+                      <li>Centar grada</li>
+                      <li>★★★★★ (4.7)</li>
+                      <li>Cijena: 155 KM/noć</li>
+                      <li>Kapacitet: 2–3 osobe</li>
+                    </ul>
+                  </li>
+                  <li>Hotel Tuzla
+                    <ul>
+                      <li>Centar grada</li>
+                      <li>★★★★★ (4.6)</li>
+                      <li>Cijena: 140 KM/noć</li>
+                      <li>Kapacitet: 2–3 osobe</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div> <div class="kategorija-red" id="kat-apartmani">
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="images/LUX.jpg" alt="Moderan enterijer apartmana Lux Tuzla" loading="lazy">
+              <figcaption>Apartman Lux — enterijer</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="images/PANONIJA.jpg" alt="Moderan enterijer apartmana Panonija Tuzla" loading="lazy">
+              <figcaption>Apartman Panonija — enterijer</figcaption>
+            </figure>
+          </div>
+
+          <div class="kategorije-tekst">
+            <ul class="nested-list">
+              <li class="kat-glavna">Apartmani
+                <ul>
+                  <li>Apartman Lux
+                    <ul>
+                      <li>Centar grada</li>
+                      <li>★★★★★ (4.8)</li>
+                      <li>Cijena: 90 KM/noć</li>
+                      <li>Kapacitet: 2 osobe</li>
+                    </ul>
+                  </li>
+                  <li>Apartman Panonija
+                    <ul>
+                      <li>Centar grada</li>
+                      <li>★★★★★ (5.0)</li>
+                      <li>Cijena: 55 KM/noć</li>
+                      <li>Kapacitet: 2 osobe</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div> <div class="kategorija-red" id="kat-sobe">
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="images/StariGrad.jpg" alt="Udobna soba Stari Grad u Tuzli" loading="lazy">
+              <figcaption>Soba Stari Grad — enterijer</figcaption>
+            </figure>
+          </div>
+
+          <div class="kategorije-tekst">
+            <ul class="nested-list">
+              <li class="kat-glavna">Sobe
+                <ul>
+                  <li>Soba Stari Grad
+                    <ul>
+                      <li>Stari Grad</li>
+                      <li>★★★★☆ (4.4)</li>
+                      <li>Cijena: 50 KM/noć</li>
+                      <li>Kapacitet: 1–2 osobe</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div> <div class="kategorija-red" id="kat-vile">
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="images/WellnessBorealis.jpg" alt="Luksuzna vila Wellness Borealis sa bazenom" loading="lazy">
+              <figcaption>Wellness Borealis — vila</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="images/CarpeDiem.jpg" alt="Moderna vila Carpe Diem sa bazenom i dvorištem" loading="lazy">
+              <figcaption>Carpe Diem — vila</figcaption>
+            </figure>
+          </div>
+
+          <div class="kategorije-tekst">
+            <ul class="nested-list">
+              <li class="kat-glavna">Vile
+                <ul>
+                  <li>Wellness Borealis
+                    <ul>
+                      <li>★★★★☆ (4.9)</li>
+                      <li>Cijena: 320 KM/noć</li>
+                      <li>Kapacitet: 6–10 osoba</li>
+                      <li>Privatni bazen</li>
+                      <li>BBQ zona</li>
+                    </ul>
+                  </li>
+                  <li>Carpe Diem
+                    <ul>
+                      <li>★★★★☆ (4.5)</li>
+                      <li>Cijena: 280 KM/noć</li>
+                      <li>Kapacitet: 6–10 osoba</li>
+                      <li>Privatni bazen</li>
+                      <li>BBQ zona</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div> <div class="kategorija-red" id="kat-studio">
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="images/SquareStudio.jpg" alt="Moderni studio apartman Square Studio u centru Tuzle" loading="lazy">
+              <figcaption>Square Studio — studio</figcaption>
+            </figure>
+          </div>
+
+          <div class="kategorije-tekst">
+            <ul class="nested-list">
+              <li class="kat-glavna">Studio
+                <ul>
+                  <li>Square Studio
+                    <ul>
+                      <li>Centar grada</li>
+                      <li>★★★★★ (4.9)</li>
+                      <li>Cijena: 50 KM/noć</li>
+                      <li>Kapacitet: 2 osobe</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div> </div>
+    </section>
+
+
+  
+
+
+    <!-- ================================================
+         KALKULATOR CIJENE SMJEŠTAJA
+         ================================================ -->
+    <section id="kalkulator" class="content-section">
+      <h2>Kalkulator cijene <span class="section-anchor"><a href="#vrh">↑ Vrh</a></span></h2>
+      <p>Izračunajte ukupnu cijenu boravka prema vašem odabiru smještaja i broju noći.</p>
+
+      <div class="kalkulator-sekcija">
+        <h3>🧮 Izračunaj cijenu boravka</h3>
+
+        <div class="kalk-grid">
+          <div class="kalk-group">
+            <label for="kalk-smjestaj">Odaberite smještaj</label>
+            <select id="kalk-smjestaj">
+              <option value="170">Hotel Mellain — 170 KM/noć</option>
+              <option value="155">Hotel Salis — 155 KM/noć</option>
+              <option value="140">Hotel Tuzla — 140 KM/noć</option>
+              <option value="90">Apartman Lux — 90 KM/noć</option>
+              <option value="55" selected>Apartman Panonija — 55 KM/noć</option>
+              <option value="50">Soba Stari Grad — 50 KM/noć</option>
+              <option value="320">Wellness Borealis — 320 KM/noć</option>
+              <option value="280">Carpe Diem — 280 KM/noć</option>
+              <option value="50">Square Studio — 50 KM/noć</option>
+            </select>
+          </div>
+
+          <div class="kalk-group">
+            <label for="kalk-noci">Broj noći</label>
+            <input type="number" id="kalk-noci" value="3" min="1" max="365">
+          </div>
+
+          <div class="kalk-group">
+            <label for="kalk-osobe">Broj osoba</label>
+            <select id="kalk-osobe">
+              <option value="1">1 osoba</option>
+              <option value="2" selected>2 osobe</option>
+              <option value="3">3 osobe</option>
+              <option value="4">4 osobe</option>
+              <option value="5">5+ osoba</option>
+            </select>
+          </div>
+
+          <div class="kalk-group">
+            <label for="kalk-sezona">Sezona</label>
+            <select id="kalk-sezona">
+              <option value="1">Niska sezona (×1.0)</option>
+              <option value="1.15" selected>Srednja sezona (×1.15)</option>
+              <option value="1.3">Visoka sezona (×1.3)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="kalk-rezultat" id="kalk-rezultat">
+          <div>
+            <div class="kalk-rezultat-label">Ukupna cijena boravka</div>
+            <div class="kalk-rezultat-iznos" id="kalk-iznos">190 KM</div>
+            <div class="kalk-detalji" id="kalk-detalji">2 noći × 55 KM × sezona 1.15</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="kalk-rezultat-label">Po noći</div>
+            <div style="font-size:1.1rem; font-weight:600; color:rgba(255,255,255,0.7);" id="kalk-po-noci">63 KM</div>
+          </div>
+        </div>
+
+        <p class="kalk-napomena">* Cijena je orijentacijska. Finalna cijena može varirati u zavisnosti od dostupnosti i posebnih ponuda.</p>
+      </div>
+    </section>
+
+  
+
+  </main>
+
+
+  <a href="#vrh" class="back-to-top" aria-label="Skoči na vrh stranice">↑ Vrh stranice</a>
+  <button id="scroll-to-top" aria-label="Vrati se na vrh stranice">↑</button>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Tuzla<span>Stay</span></div>
+      <div class="footer-members">
+        <p><strong>Autori projekta:</strong></p>
+        <p>Bakir Bajraktarević &nbsp;|&nbsp; Bakir Karasuljić &nbsp;|&nbsp; Benjamin Brkić</p>
+        <p>TPTP — Akademska godina 2025/2026</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/BenjaminBrkic/Grupa19-TPTP-2026" target="_blank" rel="noopener">GitHub</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="index.html">Početna</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/tptpskripte.js"></script>
+</body>
+</html>
